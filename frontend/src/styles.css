@@ -1,3 +1,36 @@
 .bs-modal-top-20 {
     margin-top: 150px;
 }
+.d-primary-color {
+    color: #37474f;
+}
+.d-background-primary-color {
+    background-color: #37474f;
+}
+.d-secondary-color {
+    color: #00bfa5;
+}
+.d-background-secondary-color {
+    background-color: #00bfa5;
+}
+.d-third-color {
+    color: #76FF03;
+}
+.d-background-third-color {
+    background-color: #76FF03;
+}
+
+.d-primary-button {
+    border: none;
+    outline: none;
+    background-color: #00bfa5;
+    border-radius: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 8px 24px;
+}
+
+.d-primary-button:hover {
+    color: #000000;
+    background-color: #76FF03;
+}

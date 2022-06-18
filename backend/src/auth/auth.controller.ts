@@ -8,20 +8,20 @@ import User from '../user/user.model';
 export default {
     async login(req: express.Request, res: express.Response) {
         try {
-            const { userName, password } = req.body;
+            const { username, password } = req.body;
 
-            if (!(userName && password)) {
+            if (!(username && password)) {
                 return res.status(400).send({
                     success: false,
-                    error: 'Both userName and password are required',
+                    error: 'Both username and password are required',
                 });
             }
 
-            const user = await User.findOne({ userName });
+            const user = await User.findOne({ username });
             if (!user) {
                 return res.status(400).send({
                     success: false,
-                    error: 'No registered user with the userName',
+                    error: 'No registered user with the username',
                 });
             }
             const passwordMatched = await bcrypt.compare(password, user.password);
@@ -32,14 +32,14 @@ export default {
                 });
             }
 
-            const token = jwt.sign({ userId: user._id, userName }, TOKEN_KEY, {
+            const token = jwt.sign({ userId: user._id, username }, TOKEN_KEY, {
                 expiresIn: '1d',
             });
             await User.updateOne({ _id: user._id }, { accessToken: token });
 
             const userDetails = {
                 id: user._id,
-                userName: user.userName,
+                username: user.username,
                 name: user.name,
                 address: user.address,
                 mobileNumber: user.mobileNumber,

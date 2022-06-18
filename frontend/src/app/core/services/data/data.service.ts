@@ -30,10 +30,10 @@ export class DataService {
   }
 
   setLoggedUser(loggedUser: IUser): void {
-    const { id, userName, password, name, address, mobileNumber, role } = loggedUser;
+    const { id, username, password, name, address, mobileNumber, role } = loggedUser;
     localStorage.setItem(
       AUTH_USER,
-      JSON.stringify({ id, userName, password, name, address, mobileNumber, role })
+      JSON.stringify({ id, username, password, name, address, mobileNumber, role })
     );
     this.loggedUser.next(loggedUser);
   }

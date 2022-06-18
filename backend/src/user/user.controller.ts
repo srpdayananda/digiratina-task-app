@@ -20,8 +20,8 @@ export default {
 
             const reqBody = req.body;
             const errors = [];
-            if (!reqBody.userName) {
-                errors.push("userName is required");
+            if (!reqBody.username) {
+                errors.push("username is required");
             }
             if (!reqBody.name) {
                 errors.push("Name is required");
@@ -46,9 +46,9 @@ export default {
                 );
             }
 
-            const foundUser = await User.findOne({ userName: req.body.userName });
+            const foundUser = await User.findOne({ username: req.body.username });
             if (foundUser) {
-                errors.push("User with userName is already added");
+                errors.push("User with username is already added");
             }
             if (errors.length > 0) {
                 return res.status(400).send({
@@ -60,7 +60,7 @@ export default {
             if (!foundUser) {
                 const bPassword = await bcrypt.hash("12345678", 10);
                 await User.create({
-                    userName: req.body.userName,
+                    username: req.body.username,
                     name: req.body.name,
                     address: req.body.address,
                     mobileNumber: req.body.mobileNumber,
@@ -92,7 +92,7 @@ export default {
 
             const foundUsers = await User.find(query);
             const modifyUser = foundUsers.map((user: any) => {
-                return { id: user._id, userName: user.userName, name: user.name, address: user.address, mobileNumber: user.mobileNumber, role: user.role }
+                return { id: user._id, username: user.username, name: user.name, address: user.address, mobileNumber: user.mobileNumber, role: user.role }
             })
 
             return res.status(200).send({

@@ -10,13 +10,13 @@ export default {
                 'mongodb://localhost/digiratina_task_app',
                 { useNewUrlParser: true }
             );
-            const user = await User.findOne({ userName: "admin@digiratina.com" })
+            const user = await User.findOne({ username: "admin@digiratina.com" })
             console.log('🚀...Database connected successfully...🚀')
             const hashPassword = await bcrypt.hash('12345678', 10)
 
             if (!user) {
                 await User.create({
-                    userName: 'admin@digiratina.com',
+                    username: 'admin@digiratina.com',
                     password: hashPassword,
                     name: 'John Doe',
                     address: '123, Colombo, Sri Lanka',
