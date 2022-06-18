@@ -18,22 +18,12 @@ export default {
                 await User.create({
                     userName: 'admin@digiratina.com',
                     password: hashPassword,
+                    name: 'Ruwan',
                     address: 'No-171, sandala, sole wewa',
                     mobileNumber: "0771642571",
                     role: 'ADMIN',
                     accessToken: null,
                 });
-                const user2 = await User.findOne({ userName: 'user@digiratina.com' })
-                if (!user2) {
-                    await User.create({
-                        userName: 'user@digiratina.com',
-                        password: hashPassword,
-                        address: 'No-300,galgamuwa',
-                        mobileNumber: "0777344567",
-                        role: 'USER',
-                        accessToken: null,
-                    })
-                }
             }
         }
         catch (error) {

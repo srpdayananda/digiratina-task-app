@@ -58,6 +58,7 @@ export default {
                 const bPassword = await bcrypt.hash("12345678", 10);
                 await User.create({
                     userName: req.body.userName,
+                    name: req.body.name,
                     address: req.body.address,
                     mobileNumber: req.body.mobileNumber,
                     password: bPassword,
@@ -85,7 +86,7 @@ export default {
             }
             const foundUsers = await User.find();
             const modifyUser = foundUsers.map((user: any) => {
-                return { id: user._id, address: user.address, mobileNumber: user.mobileNumber, role: user.role }
+                return { id: user._id, name: user.name, address: user.address, mobileNumber: user.mobileNumber, role: user.role }
             })
 
             return res.status(200).send({
@@ -119,6 +120,7 @@ export default {
             }
             const query = { _id: req.body.id };
             const newValue = {
+                name: req.body.name,
                 address: req.body.address,
                 mobileNumber: req.body.mobileNumber,
             };

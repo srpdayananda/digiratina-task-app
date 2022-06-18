@@ -28,7 +28,7 @@ export default {
         try {
             let query = { userId: req.query.id }
 
-            const getBooks = await Book.find(query).populate('userId', ['author'])
+            const getBooks = await Book.find(query).populate('userId', ['name'])
             return res.status(200).send({
                 success: true,
                 message: 'Book got successfully',

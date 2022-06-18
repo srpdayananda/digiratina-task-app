@@ -2,7 +2,7 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import { TOKEN_KEY } from '../../constant/constant';
+import { TOKEN_KEY } from '../../config/constant';
 import User from '../user/user.model';
 
 export default {
@@ -40,6 +40,7 @@ export default {
             const userDetails = {
                 id: user._id,
                 userName: user.userName,
+                name: user.name,
                 address: user.address,
                 mobileNumber: user.mobileNumber,
                 role: user.role,

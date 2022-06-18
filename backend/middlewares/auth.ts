@@ -1,7 +1,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 
-import { TOKEN_KEY } from "../constant/constant";
+import { TOKEN_KEY } from "../config/constant";
 import User from '../src/user/user.model';
 
 const auth = async (

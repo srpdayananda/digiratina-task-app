@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-import DB from './constant/db';
+import DB from './config/db';
 
 import auth from './middlewares/auth';
 
