@@ -1,0 +1,54 @@
+<ng-template #template>
+    <form #userForm="ngForm" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="user-add-edit">
+            <div class="header">
+                <h2 class="title">{{editUserId ? 'Update User' : 'Add User'}}</h2>
+                <button class="btn-closed" type="button" (click)="closeModal()">X</button>
+            </div>
+            <div class="body">
+                <div *ngIf="editUserId === null" class="username">
+                    <input class="username-input" type="username" formControlName="username" placeholder="Enter Username">
+                    <div class="error" *ngIf="userForm.submitted && f.username?.errors?.required">
+                        Username is required!
+                    </div>
+                </div>
+                <div class="name">
+                    <input class="name-input" type="text" formControlName="name" placeholder="Enter Name">
+                    <div class="error" *ngIf="userForm.submitted && f.name?.errors?.required">
+                         Name is required!
+                    </div>
+                </div>
+                <div class="address">
+                    <input class="address-input" type="text" formControlName="address" placeholder="Enter Address">
+                    <div class="error" *ngIf="userForm.submitted && f.address?.errors?.required">
+                        Address is required!
+                    </div>
+                </div>
+                <div class="mobileNumber">
+                    <input class="mobileNumber-input" type="text" formControlName="mobileNumber" placeholder="Enter MobileNumber">
+                    <div class="error" *ngIf="userForm.submitted && f.mobileNumber?.errors?.required">
+                        MobileNumber is required!
+                    </div>
+                </div>
+                <div *ngIf="editUserId === null" class="password">
+                    <input class="password-input" type="password" formControlName="password"
+                        placeholder="Enter password">
+                    <div class="error" *ngIf="userForm.submitted && f.password?.errors?.required">
+                        Password is required!
+                    </div>
+                    <div class="error" *ngIf="userForm.submitted && f.password?.errors?.minlength">
+                        Password should be at least 8 characters!
+                    </div>
+                </div>
+                <select *ngIf="editUserId === null" class="role" formControlName="role">
+                    <option *ngFor="let role of roles" [value]="role">
+                        {{ role }}
+                    </option>
+                </select>
+                <div class="footer">
+                    <button class="btn-save d-primary-button" type="submit">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</ng-template>

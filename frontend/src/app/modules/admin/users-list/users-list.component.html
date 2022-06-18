@@ -1,0 +1,25 @@
+<div class="row usersList">
+    <div class="wrapper" *ngFor="let user of users;">
+        <img src="assets/img/user.svg" alt="" class="user-image">
+        <h3 class="name">{{ user.name }}</h3>
+        <p class="user-role">{{ user.role }}</p>
+        <div class="username">
+            <a>{{ user.username }}</a>
+        </div>
+        <div class="mobileNumber">Tel:{{ user.mobileNumber }}</div>
+        <div class="address">Address:{{ user.address }}</div>
+
+        <div class="actions">
+            <div class="action ">
+                <a (click)="editClickListener(user)">
+                    <img src="assets/icons/edit.svg" alt="" class="edit-image filter-white ">
+                </a>
+            </div>
+            <div class="action">
+                <a (click)="deleteClickListener(user)">
+                    <img src="assets/icons/delete.svg" alt="" class="delete-image filter-white">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

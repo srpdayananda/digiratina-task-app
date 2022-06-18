@@ -1,0 +1,17 @@
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  color: white;
+  text-align: center;
+  margin-left: 40%;
+}
+.logout-button {
+  background-color: #b71c1c;
+}
+.logout-button:hover {
+  background-color: #f44336;
+}

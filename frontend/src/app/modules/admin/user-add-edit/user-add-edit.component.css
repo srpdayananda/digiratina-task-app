@@ -1,0 +1,91 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  align-items: center;
+}
+.title {
+  text-align: center;
+  margin-left: 100px;
+  font-weight: 800;
+}
+.btn-closed {
+  color: black;
+  background-color: white;
+  font-size: 25px;
+  font-weight: 700;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.body {
+  margin: 10px;
+  margin: 5%;
+}
+.username {
+  margin-bottom: 5%;
+}
+.username-input {
+  border-radius: 16px;
+  padding: 5px;
+  width: 300px;
+  border: 2px solid gray;
+}
+.name {
+  margin-bottom: 5%;
+}
+.name-input {
+  border-radius: 16px;
+  padding: 5px;
+  width: 300px;
+  border: 2px solid gray;
+}
+.address {
+  margin-bottom: 5%;
+}
+.address-input {
+  border-radius: 16px;
+  padding: 5px;
+  width: 300px;
+  border: 2px solid gray;
+}
+.mobileNumber {
+  margin-bottom: 5%;
+}
+.mobileNumber-input {
+  border-radius: 16px;
+  padding: 5px;
+  width: 300px;
+  border: 2px solid gray;
+}
+.password {
+  margin-bottom: 5%;
+}
+.password-input {
+  border-radius: 16px;
+  padding: 5px;
+  width: 300px;
+  border: 2px solid gray;
+}
+.role {
+  margin-bottom: 5%;
+  justify-content: flex-start;
+  border-radius: 16px;
+  padding: 5px;
+  width: 300px;
+  border: 2px solid gray;
+}
+
+.footer {
+  display: flex;
+  justify-content: end;
+}
+
+.error {
+  color: red;
+  margin-left: 10px;
+}
