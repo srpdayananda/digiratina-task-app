@@ -7,6 +7,27 @@ import { IRequest } from '../common/interfaces/request';
 export default {
     async createBook(req: IRequest, res: express.Response) {
         try {
+            const reqBody = req.body;
+            const errors = [];
+
+            if (!reqBody.name) {
+                errors.push("Name is required");
+            }
+            if (!reqBody.author) {
+                errors.push("Author is required")
+            }
+            if (!reqBody.year) {
+                errors.push("Year is required")
+            }
+
+            if (errors.length > 0) {
+                return res.status(400).send({
+                    success: false,
+                    message: "Failed Book Created",
+                    errors: errors,
+                });
+            }
+
             await Book.create({
                 name: req.body.name,
                 author: req.body.author,
@@ -28,11 +49,12 @@ export default {
         try {
             let query = { userId: req.query.id }
 
-            const getBooks = await Book.find(query).populate('userId', ['name'])
+            const foundBooks = await Book.find(query).populate('userId', ['name'])
+
             return res.status(200).send({
                 success: true,
                 message: 'Book got successfully',
-                books: getBooks
+                books: foundBooks
             })
         }
         catch (error) {
@@ -46,19 +68,41 @@ export default {
         try {
             let query = { _id: req.body.id }
 
-            const findBook = await Book.findOne(query);
-            if (findBook) {
+            const reqBody = req.body;
+            const errors = [];
+
+            if (!reqBody.name) {
+                errors.push("Name is required");
+            }
+            if (!reqBody.author) {
+                errors.push("Author is required")
+            }
+            if (!reqBody.year) {
+                errors.push("Year is required")
+            }
+
+            const foundBook = await Book.findOne(query);
+
+            if (errors.length > 0) {
+                return res.status(400).send({
+                    success: false,
+                    message: "Failed Book Created",
+                    errors: errors,
+                });
+            }
+
+            if (foundBook) {
                 let newValue = {
                     name: req.body.name,
                     author: req.body.author,
                     year: req.body.year
                 }
 
-                const updateBook = await Book.updateOne(query, newValue)
+                const updatedBook = await Book.updateOne(query, newValue)
                 return res.status(200).send({
                     success: true,
                     message: 'Book Update Successfully',
-                    Book: updateBook
+                    Book: updatedBook
                 })
             }
         }

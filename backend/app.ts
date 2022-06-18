@@ -5,9 +5,9 @@ import DB from './config/db';
 
 import auth from './middlewares/auth';
 
-import { authRouter } from './src/auth/auth.index';
-import { userRouter } from './src/user/user.index';
-import { bookRouter } from './src/book/book.index';
+import { authRouter } from './src/auth';
+import { userRouter } from './src/user';
+import { bookRouter } from './src/book';
 
 const app = express();
 const port = 3000;

@@ -23,6 +23,9 @@ export default {
             if (!reqBody.userName) {
                 errors.push("userName is required");
             }
+            if (!reqBody.name) {
+                errors.push("Name is required");
+            }
             if (!reqBody.address) {
                 errors.push("address is required");
             }
@@ -84,9 +87,12 @@ export default {
                     message: "You Have not Permission",
                 });
             }
-            const foundUsers = await User.find();
+
+            let query = { role: RoleEnum.USER }
+
+            const foundUsers = await User.find(query);
             const modifyUser = foundUsers.map((user: any) => {
-                return { id: user._id, name: user.name, address: user.address, mobileNumber: user.mobileNumber, role: user.role }
+                return { id: user._id, userName: user.userName, name: user.name, address: user.address, mobileNumber: user.mobileNumber, role: user.role }
             })
 
             return res.status(200).send({

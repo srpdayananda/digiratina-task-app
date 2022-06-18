@@ -1,1 +1,1 @@
-export const TOKEN_KEY = 'IMS';
+export const TOKEN_KEY = 'DTA';

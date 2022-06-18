@@ -3,9 +3,10 @@ import jwt from "jsonwebtoken";
 
 import { TOKEN_KEY } from "../config/constant";
 import User from '../src/user/user.model';
+import { IRequest } from './../src/common/interfaces/request';
 
 const auth = async (
-    req: any,
+    req: IRequest,
     res: express.Response,
     next: express.NextFunction
 ) => {
@@ -26,7 +27,7 @@ const auth = async (
             return res.status(401).send({ success: false, error: "JWT Invalid" });
         }
     } catch (error) {
-        return res.status(500).send({ success: false, error: "Internal Server Error" });
+        return res.status(500).send({ success: false, error: "JWT expired" });
     }
 
     return next();
