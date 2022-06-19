@@ -1,1 +1,11 @@
-<p>user works!</p>
+<app-header></app-header>
+<div class="user">
+    <div class="add-selection">
+      <button class="add-book d-primary-button" (click)="addBookModal()">Add Book</button>
+    </div>
+    <div class="books-list" *ngIf="booksList.length > 0">
+      <app-books-list [books]="booksList" (onEdit)="onEditBook($event)" (onDelete)="onDeleteBook($event)"></app-books-list>
+    </div>
+  </div>
+  <app-book-add-edit #onAddEditBookModal (refetch)="onRefetch($event)"></app-book-add-edit>
+  <app-conformation-popup #deleteBookModal (isConform)="onConform($event)"></app-conformation-popup>

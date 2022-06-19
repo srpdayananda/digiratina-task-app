@@ -1,1 +1,21 @@
-<p>books-list works!</p>
+<div class="books-list">
+    <table>
+        <tr>
+            <th>Books Name</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Name (userId)</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let book of books">
+            <td> {{ book.name }} </td>
+            <td> {{ book.author }} </td>
+            <td> {{ book.year | date:' dd/mm/yyyy'}} </td>
+            <td> {{ book.userId.name }} </td>
+            <td>
+                <button class="edit-button d-primary-button" (click)="editClickListener(book)">Edit</button>
+                <button class="delete-button d-primary-button" (click)="deleteClickListener(book)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+<ng-template #template>
+    <form #bookForm="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="add-book">
+            <div class="header">
+                <h2 class="title"> {{ editBookId ? 'Update Book':'Add Book'}}</h2>
+                <button class="btn-closed" (click)="onClosed()" type="button">X</button>
+            </div>
+            <div class="body">
+                <div class="name">
+                    <input type="text" class="input-field" formControlName="name" placeholder="Name">
+                    <div class="error" *ngIf="bookForm.submitted && f.name?.errors?.required">
+                        Name is required!
+                    </div>
+                </div>
+                <div class="author">
+                    <input type="text" class="input-field" formControlName="author" placeholder="Author">
+                    <div class="error" *ngIf="bookForm.submitted && f.author?.errors?.required">
+                        Author is required!
+                    </div>
+                </div>
+                <div class="year">
+                    <input type="date" class="input-field" formControlName="year" placeholder="Year">
+                    <div class="error" *ngIf="bookForm.submitted && f.year?.errors?.required">
+                        Year is required!
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button class="add-button d-primary-button" type="submit"
+                >{{ editBookId ? 'Update Book':'Add Book'}}</button>
+            </div>
+        </div>
+    </form>
+</ng-template>

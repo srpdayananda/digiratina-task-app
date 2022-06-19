@@ -1,0 +1,17 @@
+.add-selection {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+}
+
+.add-book {
+  font-weight: 500;
+  padding: 6px 24px;
+  border: none;
+  border-radius: 12px;
+}
+
+.books-list {
+  padding: 20px 40px;
+}
