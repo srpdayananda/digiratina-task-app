@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from '../../../../environments/environment';
 import { HttpResponse } from '../../../shared/type/common';
+import { GetBooksResponseProps } from 'src/app/shared/type/book-props';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,9 @@ export class BookService {
     return this.http.post<HttpResponse>(`${this.API_URL}/book`, book)
   }
 
-  getBooks(id: string): Observable<HttpResponse> {
+  getBooks(id: string): Observable<GetBooksResponseProps> {
     let params = new HttpParams().append('id', id);
-    return this.http.get<HttpResponse>(`${this.API_URL}/book`, { params })
+    return this.http.get<GetBooksResponseProps>(`${this.API_URL}/book`, { params })
   }
 
   updateBook(id: any): Observable<HttpResponse> {

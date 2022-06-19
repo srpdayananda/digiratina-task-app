@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { HttpResponse } from './../../../shared/type/common';
 
 import { environment } from '../../../../environments/environment'
+import { GetUsersResponseProps } from 'src/app/shared/type/user-props';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class UserService {
     return this.http.post<HttpResponse>(`${this.API_URL}/user`, user);
   }
 
-  getUsers(): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}/user`);
+  getUsers(): Observable<GetUsersResponseProps> {
+    return this.http.get<GetUsersResponseProps>(`${this.API_URL}/user`);
   }
 
   updateUser(user: any): Observable<HttpResponse> {

@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChild, TemplateRef, EventEmitter, Output } from 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { BookService } from '../../../core/services/book/book.service'
 import { ToastrService } from 'ngx-toastr';
-import { IBook } from 'src/app/shared/interface/book.interfaces';
+import { IBook } from 'src/app/shared/interface/book.interface';
 
 @Component({
   selector: 'app-book-add-edit',

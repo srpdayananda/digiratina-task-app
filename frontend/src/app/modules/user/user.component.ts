@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BookService } from 'src/app/core/services/book/book.service';
 import { DataService } from 'src/app/core/services/data/data.service';
 import { ConformationPopupComponent } from 'src/app/shared/components/conformation-popup/conformation-popup.component';
-import { IBook } from '../../shared/interface/book.interfaces';
+import { IBook } from '../../shared/interface/book.interface';
 import { BookAddEditComponent } from './book-add-edit/book-add-edit.component';
 
 
@@ -32,12 +32,12 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLoggedUser()
-    this.getbooksList()
+    this.getBooksList()
   }
 
   onRefetch(refetch: boolean) {
     if (refetch) {
-      this.getbooksList();
+      this.getBooksList();
     }
   }
   getLoggedUser() {
@@ -56,7 +56,7 @@ export class UserComponent implements OnInit {
     this.onAddEditBookModal.openModal(book)
   }
 
-  getbooksList() {
+  getBooksList() {
     this.booksService.getBooks(this.id).subscribe((response) => {
       if (response.success) {
         this.booksList = response?.books || []
@@ -83,7 +83,7 @@ export class UserComponent implements OnInit {
         if (response.success) {
           this.toastr.success(response.message);
           this.deleteBookId = null
-          this.getbooksList()
+          this.getBooksList()
         }
       }, (err) => {
         const errors = err?.error?.errors;

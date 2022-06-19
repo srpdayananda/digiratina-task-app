@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { IBook } from '../../../shared/interface/book.interfaces'
+import { IBook } from '../../../shared/interface/book.interface'
 
 @Component({
   selector: 'app-books-list',
