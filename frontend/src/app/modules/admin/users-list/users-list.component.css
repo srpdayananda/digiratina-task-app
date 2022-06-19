@@ -55,12 +55,15 @@
 }
 .username {
   text-align: center;
+  color: #01579B;
 }
 .mobileNumber {
   text-align: center;
+  color: #01579B;
 }
 .address {
   text-align: center;
+  color: #4FC3F7;
 }
 
 .actions {
